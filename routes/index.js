@@ -7,38 +7,27 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Nueva Firma' });
 });
 
-router.post('/create', function (req, res) {
+router.post('/show', function (req, res) {
 
   var locals = {
-    name: req.body.name.toUpperCase(), 
-    job: req.body.job.toUpperCase(),
+    first_name: req.body.first_name.toUpperCase(), 
+    last_name: req.body.last_name.toUpperCase(),
+    position: req.body.position.toUpperCase(),
     phone: req.body.phone,
-    photo: req.body.photo
+    company: req.body.company
   }
-
-  res.render('create', 
-  { 
-    title: "Firma - " + locals.name,
-    firma_homeselect: jade.renderFile('views/partials/firma_homeselect.jade', locals),
-    firma_homeclub: jade.renderFile('views/partials/firma_homeclub.jade', locals),
-    name: locals.name, 
-    job: locals.job,
-    phone: locals.phone,
-    photo: locals.photo
-  });
-});
-
-router.get('/show', function (req, res) {
 
   res.render('show', 
   { 
-    title: req.query.template + " - " + req.query.name,
-    template: req.query.template,
-    name: req.query.name.toUpperCase(), 
-    job: req.query.job.toUpperCase(),
-    phone: req.query.phone,
-    photo: req.query.photo
+    title: locals.company + " - " + locals.first_name,
+    company: locals.company,
+    photo: locals.first_name + "_" + locals.last_name + ".jpg",
+    first_name: locals.first_name, 
+    last_name: locals.last_name, 
+    position: locals.position,
+    phone: locals.phone,
   });
 });
+
 
 module.exports = router;
