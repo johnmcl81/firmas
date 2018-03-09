@@ -1,0 +1,33 @@
+extends layouts/layout
+block content
+	h2 Previews
+	div.preview
+		h3 Home Club
+		include partials/firma_homeclub.jade
+	div.preview
+		h3 Home Select
+		include partials/firma_homeselect.jade
+
+	div.input
+		span.label HTML Home Club
+		textarea.html-homeclub(name="html_homeclub", cols="40", rows="5")
+			=firma_homeclub
+	
+		button.copy.homeclub Copy Home Club
+
+	div.input
+		span.label HTML Home Select
+		textarea.html-homeselect(name="html_homeselect", cols="40", rows="5")
+			=firma_homeselect
+
+		button.copy.homeselect Copy Home Select
+
+	script.
+		$("button.copy").click(function(){
+			if ($(this).hasClass('homeclub')) {
+				$("textarea.html-homeclub").select();
+			} else if ($(this).hasClass('homeselect')) {
+				$("textarea.html-homeselect").select();
+			}
+			document.execCommand('copy');
+		});

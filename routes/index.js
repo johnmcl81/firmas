@@ -10,19 +10,20 @@ router.get('/', function(req, res, next) {
 router.post('/firma', function (req, res) {
 
   var locals = {
-    name: req.body.name, 
-    job: req.body.job,
-    web: req.body.web,
+    name: req.body.name.toUpperCase(), 
+    job: req.body.job.toUpperCase(),
+    phone: req.body.phone,
     photo: req.body.photo
   }
 
   res.render('create', 
   { 
-    firma: jade.renderFile('views/firma.jade', locals),
-    name: req.body.name, 
-    job: req.body.job,
-    web: req.body.web,
-    photo: req.body.photo
+    firma_homeselect: jade.renderFile('views/partials/firma_homeselect.jade', locals),
+    firma_homeclub: jade.renderFile('views/partials/firma_homeclub.jade', locals),
+    name: locals.name, 
+    job: locals.job,
+    phone: locals.phone,
+    photo: locals.photo
   });
 });
 
