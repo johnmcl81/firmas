@@ -33,6 +33,7 @@ router.post('/show', function (req, res) {
     last_name: req.body.company == 'homeclub' ? req.body.last_name.toUpperCase() : req.body.last_name,
     position: req.body.company == 'homeclub' ? req.body.position.toUpperCase() : req.body.position,
     phone: "+34 " + req.body.phone.replace(/(\d{3})/g, '$1 ').replace(/(^\s+|\s+$)/,''),
+    phone_link: "+34" + req.body.phone.trim(),
     company: req.body.company,
     photo: slug(req.body.first_name + " " + req.body.last_name) + ".jpg"
   }
@@ -46,6 +47,7 @@ router.post('/show', function (req, res) {
     last_name: locals.last_name, 
     position: locals.position,
     phone: locals.phone,
+    phone_link: locals.phone_link
   });
 });
 
