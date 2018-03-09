@@ -2,7 +2,7 @@ extends layouts/layout
 
 block content
     h1= "Crear Firma"
-    form(name="create-firma", method="post", action="/create")
+    form(name="create-firma", method="post", action="/create", target="_blank")
         div.input
           span.label Name
             input(type="text", name="name")

@@ -4,7 +4,7 @@ const jade = require("jade");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Firma' });
+  res.render('index', { title: 'Nueva Firma' });
 });
 
 router.post('/create', function (req, res) {
@@ -18,6 +18,7 @@ router.post('/create', function (req, res) {
 
   res.render('create', 
   { 
+    title: "Firma - " + locals.name,
     firma_homeselect: jade.renderFile('views/partials/firma_homeselect.jade', locals),
     firma_homeclub: jade.renderFile('views/partials/firma_homeclub.jade', locals),
     name: locals.name, 
@@ -31,6 +32,7 @@ router.get('/show', function (req, res) {
 
   res.render('show', 
   { 
+    title: req.query.template + " - " + req.query.name,
     template: req.query.template,
     name: req.query.name.toUpperCase(), 
     job: req.query.job.toUpperCase(),
