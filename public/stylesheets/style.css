@@ -1,8 +1,29 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
 }
 
 a {
   color: #00B7FF;
+}
+
+header {
+  padding-bottom: 50px;
+}
+
+.input {
+  padding-bottom: 10px;
+}
+
+input:not(.submit) {
+  margin-left: 10px;
+}
+
+.submit{
+  text-transform: uppercase;
+  background-color: lightgray;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
 }
