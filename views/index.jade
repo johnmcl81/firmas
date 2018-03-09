@@ -1,5 +1,13 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    h1= "Crear Firma"
+    form(name="create-firma", method="post", action="/firma")
+        div.input
+          span.label Name
+            input(type="text", name="name")
+        div.input
+          span.label Job
+            input(type="text", name="job")
+        div.actions
+            input(type="submit", value="create")
