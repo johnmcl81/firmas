@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Firma' });
 });
 
-router.post('/firma', function (req, res) {
+router.post('/create', function (req, res) {
 
   var locals = {
     name: req.body.name.toUpperCase(), 
@@ -24,6 +24,18 @@ router.post('/firma', function (req, res) {
     job: locals.job,
     phone: locals.phone,
     photo: locals.photo
+  });
+});
+
+router.get('/show', function (req, res) {
+
+  res.render('show', 
+  { 
+    template: req.query.template,
+    name: req.query.name.toUpperCase(), 
+    job: req.query.job.toUpperCase(),
+    phone: req.query.phone,
+    photo: req.query.photo
   });
 });
 

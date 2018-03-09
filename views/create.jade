@@ -1,26 +1,22 @@
 extends layouts/layout
 block content
-	h2 Previews
-	div.preview
-		h3 Home Club
-		include partials/firma_homeclub.jade
-	div.preview
-		h3 Home Select
-		include partials/firma_homeselect.jade
-
+	h1 Firma Creada
+	
+	h2 Home Club
 	div.input
-		span.label HTML Home Club
 		textarea.html-homeclub(name="html_homeclub", cols="40", rows="5")
 			=firma_homeclub
-	
-		button.copy.homeclub Copy Home Club
+	button.copy.homeclub Copy
+	a.link-to.homeclub(href="/show?name=#{name}&job=#{job}&phone=#{phone}&photo=#{photo}&template=homeclub", target="_blank")
+		button(type="button") Show
 
+	h2 Home Select
 	div.input
-		span.label HTML Home Select
 		textarea.html-homeselect(name="html_homeselect", cols="40", rows="5")
 			=firma_homeselect
-
-		button.copy.homeselect Copy Home Select
+	button.copy.homeselect Copy
+	a.link-to.homeselect(href="/show?name=#{name}&job=#{job}&phone=#{phone}&photo=#{photo}&template=homeselect", target="_blank")
+		button(type="button") Show
 
 	script.
 		$("button.copy").click(function(){
