@@ -1,6 +1,36 @@
-extends layout
-
-block content
-    h1= "Firma Creada"
-    p= "Name: " + name
-    p= "Job: " + job
+.gmail_signature(data-smartmail='gmail_signature')
+div(dir='ltr')
+	div
+		div(dir='ltr')
+			table(width='570')
+				tbody
+					tr
+						td(width='126')
+							img(src='https://ci4.googleusercontent.com/proxy/dNuEO48vpAb5gPMUyIHbQGUnJPyTXZHfJOD4HFyTo_H5au7OHxf5wbcWVYOrZ1bNJ_iHmP42snIr2FZ9rp6T8Q55dqoLTtoEZp8d4JtqxvnrLCaPpD0-6jiHWxx7uqJKSBJMzAiRiLf6xczgACLu0W2MT6mpI1a9eiG5hWgo1pm37Cc5ZDdq9fNgW3vaELjOeX5YlHiPwHPQoMw=s0-d-e1-ft#https://docs.google.com/uc?export=download&id=0B488sveoaSKzdVc4dm5iYW9TemM&revid=0B488sveoaSKzRjlXb0NqbVdNem9xK3BObi9ET2Jjek9oSys4PQ')
+						td
+							table(style='font-family:Arial;font-size:10pt;color:#333')
+								tbody
+									tr
+										td(style='height:28px')
+											strong #{name}
+											|  | #{job}
+									tr
+										td(style='height:35px')
+											| Calle Hermosilla, 21
+											br
+											| 28001 Madrid, Spain
+									tr
+										td(style='height:35px')
+											| +34 915 237 451
+											br
+											a(href='http://www.homeselect.com', style='font-family:Arial;font-size:10pt;color:#333;font-weight:bold;text-decoration:none', target='_blank') homeselect.com
+									tr
+										td(style='height:28px')
+											a(href='http://www.facebook.com/homeselect', style='color:#333;text-decoration:none', target='_blank') Facebook
+											|  
+											a(href='http://www.linkedin.com/company/home-select', style='color:#333;text-decoration:none', target='_blank') LinkedIn
+											|  
+											a(href='http://www.instagram.com/homeselect', style='color:#333;text-decoration:none', target='_blank') Instagram
+											|  
+											a(href='https://www.homeselect.com/es/tendencias/select-blog', style='color:#333;text-decoration:none', target='_blank') Blog
+											|  

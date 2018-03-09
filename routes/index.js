@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const jade = require("jade");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -7,11 +8,22 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/firma', function (req, res) {
-  console.log(req.body.name);
-  console.log(req.body.job);
-  var name = req.body.name
-  var job = req.body.job
-  res.render('firma', { name: name, job: job});
+
+  var locals = {
+    name: req.body.name, 
+    job: req.body.job,
+    web: req.body.web,
+    photo: req.body.photo
+  }
+
+  res.render('create', 
+  { 
+    firma: jade.renderFile('views/firma.jade', locals),
+    name: req.body.name, 
+    job: req.body.job,
+    web: req.body.web,
+    photo: req.body.photo
+  });
 });
 
 module.exports = router;
