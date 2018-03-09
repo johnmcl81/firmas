@@ -28,18 +28,20 @@ router.get('/', function(req, res, next) {
 router.post('/show', function (req, res) {
 
   var locals = {
-    first_name: req.body.first_name.toUpperCase(), 
-    last_name: req.body.last_name.toUpperCase(),
-    position: req.body.position.toUpperCase(),
-    phone: req.body.phone,
-    company: req.body.company
+    title: req.body.company + " - " + req.body.first_name,
+    first_name: req.body.company == 'homeclub' ? req.body.first_name.toUpperCase() : req.body.first_name, 
+    last_name: req.body.company == 'homeclub' ? req.body.last_name.toUpperCase() : req.body.last_name,
+    position: req.body.company == 'homeclub' ? req.body.position.toUpperCase() : req.body.position,
+    phone: "+34 " + req.body.phone.replace(/(\d{3})/g, '$1 ').replace(/(^\s+|\s+$)/,''),
+    company: req.body.company,
+    photo: slug(req.body.first_name + " " + req.body.last_name) + ".jpg"
   }
 
   res.render('show', 
   { 
-    title: locals.company + " - " + locals.first_name,
+    title: locals.title,
     company: locals.company,
-    photo: slug(locals.first_name + " " + locals.last_name) + ".jpg",
+    photo: locals.photo,
     first_name: locals.first_name, 
     last_name: locals.last_name, 
     position: locals.position,
